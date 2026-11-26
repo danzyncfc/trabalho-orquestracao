@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "project": "https://github.com/danzyncfc/trabalho-orquestracao.git",
+  "approval": {
+    "by": "Danylo",
+    "turn": "01a2154b-835b-74a0-a4f3-c2887a3b3f07",
+    "request_sha256": "b91c0b957c4b6b30e378bd4338da2ac5964111582510eb2eb7d2efae9e35b577",
+    "scope": "Registrar as operações da ShopBrasil, validá-las e publicar o código da Atividade 01 no remoto público autorizado."
+  },
+  "grants": [
+    {
+      "id": "project-delivery",
+      "actor": "Jarvis",
+      "operations": [
+        "read",
+        "record-authorization",
+        "review",
+        "test",
+        "commit",
+        "push"
+      ],
+      "targets": [
+        "$PROJECT",
+        "instância Docker descartável de teste"
+      ],
+      "destinations": [
+        "$PROJECT/.ai/effects",
+        "$TEMP",
+        "https://github.com/danzyncfc/trabalho-orquestracao.git"
+      ],
+      "effect": "Validar a versão da atividade e publicar somente os arquivos da entrega e os registros técnicos exigidos, sem dados privados, credenciais reais, logs, volumes ou histórico de conversas."
+    },
+    {
+      "id": "catalog-read",
+      "actor": "Airflow scheduler / tarefa ingestion.buscar_produtos",
+      "operations": [
+        "HTTP GET"
+      ],
+      "targets": [
+        "https://fakestoreapi.com/products"
+      ],
+      "destinations": [
+        "XCom no banco metadata do Compose"
+      ],
+      "effect": "Ler o catálogo público e passar os campos category e price às tarefas seguintes."
+    },
+    {
+      "id": "analytics-write",
+      "actor": "Airflow scheduler / tarefa analysis.gravar_resultados",
+      "operations": [
+        "SQL DELETE",
+        "SQL INSERT",
+        "commit",
+        "rollback"
+      ],
+      "targets": [
+        "price_snapshot",
+        "price_history"
+      ],
+      "destinations": [
+        "PostgreSQL do serviço analytics do Compose, banco shopbrasil"
+      ],
+      "effect": "Publicar o retrato e substituir os dados da mesma execução no histórico em uma transação usando a conexão shopbrasil_analytics."
+    },
+    {
+      "id": "compose-runtime",
+      "actor": "Docker Compose / Airflow e PostgreSQL",
+      "operations": [
+        "start",
+        "migrate",
+        "init",
+        "mount-read-only",
+        "bind-loopback",
+        "stop"
+      ],
+      "targets": [
+        "imagens oficiais do Airflow e PostgreSQL",
+        "dags/",
+        "sql/init.sql"
+      ],
+      "destinations": [
+        "rede interna do Compose",
+        "volumes airflow-db, analytics-db e airflow-logs",
+        "interface em 127.0.0.1"
+      ],
+      "effect": "Inicializar os bancos e o pool, executar o scheduler, expor a interface local e manter os dados em volumes próprios."
+    }
+  ],
+  "source_bindings": [
+    {
+      "grant": "catalog-read",
+      "files": [
+        "dags/shopbrasil_prices.py"
+      ]
+    },
+    {
+      "grant": "analytics-write",
+      "files": [
+        "dags/shopbrasil_prices.py",
+        "sql/init.sql"
+      ]
+    },
+    {
+      "grant": "compose-runtime",
+      "files": [
+        "compose.yaml",
+        "sql/init.sql"
+      ]
+    },
+    {
+      "grant": "project-delivery",
+      "files": [
+        "tests/test_shopbrasil.py"
+      ]
+    }
+  ],
+  "required_tests": [
+    "shopbrasil-offline"
+  ],
+  "delivery_artifacts": [],
+  "test_commands": {
+    "shopbrasil-offline": [
+      "python.exe",
+      "payload/isolation_entry.py",
+      "test_shopbrasil.py"
+    ]
+  },
+  "fixture_assets": [
+    {
+      "sha256": "65d6914929e2879e32e92ccf99b3dc29f34af674656314595b36cd9a810da288",
+      "destination": "payload/project/dags/shopbrasil_prices.py",
+      "source": "dags/shopbrasil_prices.py"
+    }
+  ],
+  "data_roots": [
+    "Atividade 01 - Descrição.pdf"
+  ]
+}

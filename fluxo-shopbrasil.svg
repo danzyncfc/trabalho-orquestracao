@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="410" viewBox="0 0 1080 410" role="img" aria-labelledby="title desc">
+  <title id="title">Pipeline ShopBrasil</title>
+  <desc id="desc">A DAG do Airflow busca e valida o catálogo, agrupa os produtos, calcula as métricas por categoria em até dois cálculos simultâneos e grava o retrato e o histórico no PostgreSQL.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#526784"/>
+    </marker>
+  </defs>
+  <rect width="1080" height="410" rx="20" fill="#f5f8fc"/>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#182940">
+    <text x="32" y="39" font-size="23" font-weight="700">Pipeline ShopBrasil</text>
+    <rect x="178" y="62" width="704" height="321" rx="16" fill="#fff" stroke="#a4b7d1" stroke-width="1.5"/>
+    <text x="198" y="91" font-size="16" font-weight="700">Apache Airflow</text>
+    <text x="862" y="91" text-anchor="end" font-size="14" fill="#455d7c">Todos os dias às 06h de Brasília</text>
+    <rect x="198" y="109" width="174" height="253" rx="12" fill="#edf4fd"/>
+    <rect x="386" y="109" width="476" height="253" rx="12" fill="#edf4fd"/>
+    <g font-size="14" font-weight="700" fill="#315582">
+      <text x="213" y="134">Ingestão</text>
+      <text x="401" y="134">Análise</text>
+    </g>
+
+    <g fill="none" stroke="#526784" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M150 183H216"/>
+      <path d="M286 206V252"/>
+      <path d="M355 276H377V230H407"/>
+      <path d="M529 230H545V165H565"/>
+      <path d="M529 230H565"/>
+      <path d="M529 230H545V295H565"/>
+      <path d="M695 165H716V230H735"/>
+      <path d="M695 230H735"/>
+      <path d="M695 295H716V230H735"/>
+      <path d="M845 230H905"/>
+    </g>
+
+    <g fill="#fff" stroke="#98afd0" stroke-width="1.2">
+      <rect x="21" y="158" width="129" height="50" rx="9"/>
+      <rect x="216" y="160" width="139" height="46" rx="8"/>
+      <rect x="216" y="252" width="139" height="48" rx="8"/>
+      <rect x="407" y="205" width="122" height="50" rx="8"/>
+      <rect x="565" y="144" width="130" height="42" rx="8"/>
+      <rect x="565" y="209" width="130" height="42" rx="8"/>
+      <rect x="565" y="274" width="130" height="42" rx="8"/>
+      <rect x="735" y="205" width="110" height="50" rx="8"/>
+      <rect x="905" y="197" width="153" height="66" rx="9" fill="#e6f5ee" stroke="#8bb7a2"/>
+    </g>
+    <g text-anchor="middle" font-size="14">
+      <text x="85" y="188" font-weight="700">FakeStore API</text>
+      <text x="286" y="188">Buscar produtos</text>
+      <text x="286" y="281">Validar catálogo</text>
+      <text x="468" y="225">Agrupar por<tspan x="468" dy="17">categoria</tspan></text>
+      <text x="630" y="170">Calcular categoria 1</text>
+      <text x="630" y="235">Calcular categoria 2</text>
+      <text x="630" y="300">Calcular categoria N</text>
+      <text x="790" y="225">Consolidar<tspan x="790" dy="17">e gravar</tspan></text>
+      <text x="982" y="226" font-weight="700">PostgreSQL</text>
+      <text x="982" y="246" font-size="13" fill="#315a49">Retrato e histórico</text>
+      <text x="630" y="342" font-size="13" fill="#455d7c">Pool de 2 slots</text>
+    </g>
+  </g>
+</svg>

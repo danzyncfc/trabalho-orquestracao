@@ -1,0 +1,19 @@
+{
+  "results": [
+    {
+      "payload": {
+        "kind": "test",
+        "project": "https://github.com/danzyncfc/trabalho-orquestracao.git",
+        "snapshot": "6f1aab7bc11b33ba51d8637fd4de0ada1ad9ec7ad12bbc071fd9a6c5788ed771",
+        "suite": "shopbrasil-offline",
+        "exit_code": 0,
+        "isolation": "Windows AppContainer",
+        "network_capabilities": 0,
+        "external_canary_preserved": true,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "67eb90edb4456591e487fe8e4afde79f90bfbcf52aeb9d354266f8530d9364c3"
+      },
+      "signature": "RHk3QuP5HQSE7fkMGkDz1wRVKEWeGxDkatoaUi4q2q+UeAXh68laaVBRDFKj/OqUQH8cgwLIdbQDxyF+KXJQkBHFcyJhtdNft13AegUXcXuz9vnULyzvQM9DDlguM1oGndzJ1QzZ55tby0I6xvV1oYhsXab/H3kzAHphAgkyAwNh54ViLCi8JGetek4z4Vawy/yeIWkn6vf262W8QW47OVlNBLZhGDbAk7t2M9SYtswZ4+GzNqRvtnNyOonLbTKpIDF2EaWwf87I59vR+Id8PYX7UQvI7ixe1JTwLIEJguPS0zPIm6Htuu2wnHV65qS+OG6vV2ExSaV7wk6+D+v52g=="
+    }
+  ]
+}

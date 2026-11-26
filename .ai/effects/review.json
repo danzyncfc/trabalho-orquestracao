@@ -1,0 +1,31 @@
+{
+  "payload": {
+    "project": "https://github.com/danzyncfc/trabalho-orquestracao.git",
+    "snapshot": "6f1aab7bc11b33ba51d8637fd4de0ada1ad9ec7ad12bbc071fd9a6c5788ed771",
+    "implementer": "/root",
+    "reviewers": [
+      "/root/revisor_efeitos"
+    ],
+    "verdict": "approved",
+    "lifecycle": {
+      "startup": true,
+      "migration": true,
+      "failure": true,
+      "shutdown": true
+    },
+    "evidence": {
+      "/root/revisor_efeitos": {
+        "project": "https://github.com/danzyncfc/trabalho-orquestracao.git",
+        "snapshot": "6f1aab7bc11b33ba51d8637fd4de0ada1ad9ec7ad12bbc071fd9a6c5788ed771",
+        "verdict": "approved",
+        "lifecycle": {
+          "startup": true,
+          "migration": true,
+          "failure": true,
+          "shutdown": true
+        }
+      }
+    }
+  },
+  "signature": "KxXi/OGDKzbrVO9vQ42Yf7CEzd91BD7U6AGrimMz9RQIAPBUSZwbTbUcxTjHqt3qUDeNFjFZ5AKAIZflrpFoiYFInox3Q6pCPX4PKU8btyqrmw4oSEAa1Sszqn3grVNMpPlgb71MS/BE7oyVFCQ/9KnYAeFsthMdfWFKqHjEAQJ5B1NE0j2pi+MqVV/c10QH8S5ra2NplMB316G96vgX7C4RiZ/r6qGfg8hR2tKEv8lECq24jIgOEoJxnOCIb8mwR5ez+n4Zy2nRkM/6t0m5+tbcyX6YkyC2bt9a5LC07ldnEV0AquwgLWeNmjjJiVsq0vfkGDcoEcWES/iWc13ejw=="
+}
